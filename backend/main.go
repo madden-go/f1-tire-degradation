@@ -163,6 +163,15 @@ func SearchTracks(c *gin.Context) {
 	c.JSON(200, tracks)
 }
 
+func DeleteTrack(c *gin.Context) {
+	id := c.Param("id")
+	if err := DB.Delete(&RaceTrack{}, id).Error; err != nil {
+		c.JSON(500, gin.H{"error": "Failed to delete"})
+		return
+	}
+	c.JSON(200, gin.H{"message": "Track deleted"})
+}
+
 func main() {
 	ConnectDatabase()
 	SeedTires()
@@ -181,6 +190,7 @@ func main() {
 	r.GET("/tracks/first", GetFirstTrack)
 	r.GET("/tracks/last", GetLastTrack)
 	r.GET("/tracks/search", SearchTracks)
+	r.DELETE("/tracks/:id", DeleteTrack)
 
 	r.Run(":8080")
 }
