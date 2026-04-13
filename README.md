@@ -1,5 +1,8 @@
 # F1 Strategy & Telemetry Simulator
 
+https://github.com/user-attachments/assets/2115f521-501c-4515-8922-7de61a8f4a14
+
+
 A high-performance full-stack web application designed to simulate Formula 1 race strategies. This tool calculates tire degradation curves and lap time deltas to help race engineers determine the optimal "stint" length for different compounds.
 
 
